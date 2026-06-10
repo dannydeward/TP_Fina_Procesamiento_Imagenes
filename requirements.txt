@@ -1,0 +1,6 @@
+# Dependencias del TP de Procesamiento de Imágenes
+Pillow>=10.0.0
+
+# Eliminación de fondo. Incluye el backend de CPU (onnxruntime) necesario
+# para ejecutar las operaciones "fondo" y "sin_fondo".
+rembg[cpu]>=2.0.0
