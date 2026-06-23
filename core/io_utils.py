@@ -1,7 +1,12 @@
-from PIL import Image
+from PIL import Image, ImageOps
 
 def load_image(path):
-    return Image.open(path)
+    img = Image.open(path)
+    img = ImageOps.exif_transpose(img)#aplicamos exif_transpose para siempre tenerla foto en 90° y evitarq ue se rote en alguna transformacion
+    print(img.size)
+    return img
+
+
 
 def save_image(image, output_path, format=None):
     if format is None:
