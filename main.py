@@ -18,12 +18,11 @@ def mostrar_menu():
     print("0 - Salir")
 
 
-def guardar_resultado(editor, contador):
-    nombre = f"output/resultado_{contador}.png"
+def guardar_resultado(editor, nombre_filtro):
+    nombre = f"output/{nombre_filtro}.png"
     editor.save(nombre)
     editor.reset()
     print(f"Imagen guardada en: {nombre}")
-    return contador + 1
 
 
 def pedir_ruta_imagen():
@@ -67,7 +66,7 @@ def main():
 
     if modo == "2":
         editor.apply_autoedicion()
-        contador = guardar_resultado(editor, contador)
+        contador = guardar_resultado(editor, "IA")
 
 
     while True:
@@ -80,7 +79,7 @@ def main():
         if opcion == "1":
 
             editor.apply_grayscale()
-            contador = guardar_resultado(editor, contador)
+            contador = guardar_resultado(editor, "escala de Grises")
             print("Escala de grises aplicada.")
 
 
@@ -88,15 +87,15 @@ def main():
 
             angulo = float(input("Ingrese ángulo (ej 90): "))
             editor.apply_rotate(angulo)
-            contador = guardar_resultado(editor, contador)
+            contador = guardar_resultado(editor, "Rotar")
             print("Rotación aplicada.")
 
 
         elif opcion == "3":
 
-            radio = float(input("Ingrese radio blur (ej 5): "))
+            radio = float(input("Ingrese radio blur(valores de 1 a 20) (ej 5): "))
             editor.apply_blur(radio)
-            contador = guardar_resultado(editor, contador)
+            contador = guardar_resultado(editor, "Blur")
             print("Blur aplicado.")
 
 
@@ -104,7 +103,7 @@ def main():
 
             factor = float(input("Ingrese factor brillo (ej 1.2): "))
             editor.apply_brightness(factor)
-            contador = guardar_resultado(editor, contador)
+            contador = guardar_resultado(editor, "Brillo")
             print("Brillo aplicado.")
 
 
@@ -112,35 +111,35 @@ def main():
 
             factor = float(input("Ingrese factor contraste (ej 1.3): "))
             editor.apply_contrast(factor)
-            contador = guardar_resultado(editor, contador)
+            contador = guardar_resultado(editor, "Contraste")
             print("Contraste aplicado.")
 
 
         elif opcion == "6":
 
             editor.apply_mirror()
-            contador = guardar_resultado(editor, contador)
+            contador = guardar_resultado(editor, "Espejo")
             print("Espejo aplicado.")
 
 
         elif opcion == "7":
 
             editor.apply_remove_background()
-            contador = guardar_resultado(editor, contador)
+            contador = guardar_resultado(editor, "Quitar Fondo")
             print("Fondo removido.")
 
 
         elif opcion == "8":
 
             editor.apply_blurred_background()
-            contador = guardar_resultado(editor, contador)
+            contador = guardar_resultado(editor, "Fondo Borroso")
             print("Fondo borroso aplicado.")
 
 
         elif opcion == "9":
 
             editor.apply_autoedicion()
-            contador = guardar_resultado(editor, contador)
+            contador = guardar_resultado(editor, "Autoedicion")
             print("Autoedición aplicada.")
 
 
